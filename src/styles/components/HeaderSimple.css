@@ -1,0 +1,7 @@
+.header-simple {
+  display: flex;
+  justify-content: space-between;
+  min-width: 90vw;
+  max-width: 95vw;
+  padding: 15px 5px;
+}

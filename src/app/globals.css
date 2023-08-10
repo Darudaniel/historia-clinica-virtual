@@ -1,4 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
+  --font-principal: 'Inter', sans-serif;
+  --primary-color: rgb(228, 225, 225);
+  --secondary-color: #2F80ED;
+  --third-color: #5861E2;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  min-width: 320px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+html,
+body {
+  font-family: var(--font-principal);
+}
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +134,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */

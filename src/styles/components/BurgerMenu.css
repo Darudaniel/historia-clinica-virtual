@@ -1,0 +1,19 @@
+.menu-list-container {
+  position: fixed;
+  right: 0;
+  top: 12vh;
+  height: 80vh;
+  width: 80vw;
+  background-color: rebeccapurple;
+  padding: 30px;
+}
+
+.menu-list {
+  list-style: none;
+  font-size: 2rem;
+}
+
+.menu-list a {
+  color: var(--primary-color);
+  text-decoration: none;
+}

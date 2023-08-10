@@ -1,0 +1,15 @@
+.google-login-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 7px 35px;
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+}
+
+.google-icon {
+  margin: 0 5px;
+  width: 20px;
+}

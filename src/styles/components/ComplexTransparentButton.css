@@ -1,0 +1,23 @@
+.complex-transparent-button {
+  min-width: 220px;
+  max-width: 350px;
+  margin: 7px;
+  background-color: transparent;
+  font-size: 1.6rem;
+  text-align: left;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  padding: 10px 15px;
+}
+
+.title, .subtitle {
+  margin: 0;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.subtitle {
+  color: var(--secondary-color);
+}
