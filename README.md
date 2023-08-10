@@ -1,3 +1,16 @@
+# Historia Clínica Virtual Minimalista y Rápida
+
+Es una solución de software diseñada para simplificar y agilizar el proceso de registro de historias clínicas virtuales, con un enfoque centrado en la experiencia de usuario (UX) y la interfaz de usuario (UI).
+
+## Características Destacadas
+
+- **Diseño Minimalista:** ofrece una interfaz limpia y minimalista que reduce la complejidad visual y garantiza una experiencia de usuario fluida y sin distracciones.
+
+- **Agilidad en el Registro:** Gracias a su diseño intuitivo y optimizado, agiliza el ingreso de datos, permitiendo a los profesionales de la salud completar historias clínicas de manera rápida y precisa.
+
+- **Acceso en la Nube:** Con su arquitectura basada en la nube, posibilita el acceso a historias clínicas desde cualquier lugar y dispositivo con conexión a internet, fomentando la colaboración y la toma de decisiones informadas.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
