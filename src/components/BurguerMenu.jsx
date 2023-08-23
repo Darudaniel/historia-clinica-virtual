@@ -2,10 +2,21 @@
 import { useState } from 'react'
 import '@/styles/components/BurgerMenu.css'
 import Hamburger from 'hamburger-react'
+import { UserAuth } from '@/context/AuthContext'
 
 const BurgerMenu = () =>  {
 
+  
   const [isOpen, setOpen] = useState(false)
+  const {logOut} = UserAuth();  
+
+  const handleSignOut = async () => {
+    try {
+      await logOut()
+    } catch {
+      console.log(error)
+    }
+  }
 
   return (
     <div>
@@ -19,6 +30,7 @@ const BurgerMenu = () =>  {
               <li><a href="#">Item 3</a></li>
               <li><a href="#">Item 4</a></li>
               <li><a href="#">Item 5</a></li>
+              <li><button type='button' onClick={handleSignOut}>Log out</button></li>
             </ul>
           </div>
         :

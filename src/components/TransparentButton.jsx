@@ -1,6 +1,6 @@
 "use client"
 import '@/styles/components/TransparentButton.css'
-const TransparentButton = (props) => {
+const TransparentButton = ({ text }) => {
   const handleClick = () => {
     console.log('Hola soy transparentButton')
   }
@@ -11,7 +11,7 @@ const TransparentButton = (props) => {
         onClick={handleClick}
         className='transparent-button'
       >
-        {props.text}
+        {text}
       </button>  
     </div>
   )

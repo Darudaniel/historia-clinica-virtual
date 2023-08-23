@@ -1,0 +1,16 @@
+.success {
+  padding-top: 90px;
+}
+
+.check {
+  width: 70px;
+  height: 70px;
+}
+
+.message {
+  display: flex;
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0;
+  margin-bottom: 70px;
+}

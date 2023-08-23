@@ -1,9 +1,10 @@
-.complex-transparent-button {
+.patient-button {
   min-width: 220px;
   max-width: 350px;
   margin: 7px;
   background-color: transparent;
   font-size: 1.6rem;
+  line-height: 2rem;
   text-align: left;
   border: 1px solid var(--secondary-color);
   border-radius: 4px;
@@ -15,7 +16,7 @@
 }
 
 .title {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .subtitle {

@@ -1,11 +1,11 @@
 import '@/styles/components/HeaderSimple.css'
 import BackButton from './BackButton'
 
-const HeaderSimple = (props) => {
+const HeaderSimple = ({ title }) => {
   return (
     <div className='header-simple'>
       <BackButton />
-      <h1>{props.title}</h1>
+      <h1>{title}</h1>
     </div>
   )
 }

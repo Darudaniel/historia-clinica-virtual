@@ -1,14 +1,14 @@
 "use client"
-import '@/styles/components/ComplexTransparentButton.css'
-const ComplexTransparentButton = (props) => {
+import '@/styles/components/PatientButton.css'
+const PatientButton = (props) => {
   const handleClick = () => {
-    console.log('Hola consola')
+    props.action()
   }
   return (
     <button
       type="button"
       onClick={handleClick}
-      className='complex-transparent-button'
+      className='patient-button'
     >
       <p className='title'>{props.title}</p>
       <p className='subtitle'>{props.subtitle}</p>
@@ -16,4 +16,4 @@ const ComplexTransparentButton = (props) => {
   )
 }
 
-export default ComplexTransparentButton
+export default PatientButton
