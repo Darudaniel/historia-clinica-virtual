@@ -2,6 +2,7 @@
 import { UserAuth } from '@/context/AuthContext';
 import { usePathname, useRouter } from 'next/navigation'
 import Loader from './Loader';
+import { useEffect } from 'react';
 
 const UserListener = ({ children }) => {
   const {user} = UserAuth();  
@@ -13,7 +14,9 @@ const UserListener = ({ children }) => {
       <div>{children}</div>
     )
   } else {
-    router.push('/login')
+    useEffect(() => {
+      router.push('/login')
+    }, [])
     if (pathname == '/login') {
       return (
         <div>
