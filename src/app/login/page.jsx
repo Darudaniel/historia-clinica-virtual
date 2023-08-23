@@ -7,6 +7,7 @@ import Image from 'next/image'
 import logo from '@/resources/logo.png'
 import { UserAuth } from '@/context/AuthContext'
 import { useRouter } from 'next/navigation'
+import Loader from '@/components/Loader'
 
 const Login = () => {
 
@@ -24,26 +25,33 @@ const Login = () => {
 
   if(user) {
     router.push('/patients')
+    return (
+      <Loader />
+    )
+  } else {
+    return (
+      <div className='login'>
+         <div className='logo-img-container'>
+          <Image 
+            priority={true}
+            src={logo}
+            width={100}
+            height={100}
+            alt="logo"
+            className='img'
+          />
+        </div>
+        <div className='login-message-container'>
+          <h2 className='login-message'>Inicia sesion con Google para comenzar</h2>
+        </div>
+        {/* <InputNormal placeholder='Usuario' />
+        <InputNormal placeholder='Contraseña' />
+        <MainButton text='Entrar' /> */}
+        <GoogleLoginButton />
+      </div>
+    )
   }
 
-  return (
-    <div className='login'>
-       <div className='logo-img-container'>
-        <Image 
-          priority={true}
-          src={logo}
-          width={100}
-          height={100}
-          alt="logo"
-          className='img'
-        />
-      </div>
-      <InputNormal placeholder='Usuario' />
-      <InputNormal placeholder='Contraseña' />
-      <MainButton text='Entrar' />
-      <GoogleLoginButton />
-    </div>
-  )
 }
 
 export default Login

@@ -2,9 +2,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 70px;
 }
 
 .img {
   border-radius: 50%;
   margin: 15px;
 }
+
+@keyframes attentionAnimation {
+  0%, 100% {
+    transform: scale(1); /* Escala normal del contenedor */
+  }
+  50% {
+    transform: scale(1.1); /* Escala aumentada durante la mitad de la animación */
+  }
+}
+
+.login-message-container {
+  display: flex;
+  justify-content: center;
+  animation: attentionAnimation 2s infinite;
+}
+
+.login-message {
+  max-width: 60%;
+  text-align: center;
+  margin: 20px;
+}
+
+

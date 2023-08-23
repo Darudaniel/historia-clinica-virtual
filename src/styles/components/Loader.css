@@ -1,0 +1,25 @@
+@keyframes spinAnimation {
+  0% {
+    transform: rotateX(0) rotateY(0deg);
+  }
+  80% {
+    transform: rotateX(180deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.img-loader-container {
+  display: flex;
+  justify-content: center;
+  padding: 150px;
+}
+
+.img-loader {
+  border-radius: 50%;
+  animation: spinAnimation 2s linear infinite;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  transform-origin: center center; 
+}

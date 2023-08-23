@@ -11,11 +11,12 @@ const PatientsList = ({ patients }) => {
        {
           patients.map((patient) => (
             <PatientButton 
-              key={patient.id} 
-              title={patient.first_name + " " + patient.last_name} 
-              subtitle={"Cama " + patient.id} 
-              action={() => {router.push(`/patients/${patient.id}`)}} 
+              key={patient.identification} 
+              title={patient.name} 
+              subtitle={"Cama " + patient.bed} 
+              action={() => {router.push(`/patients/${patient.identification}`)}} 
             />
+            
           ))
         }
     </div>

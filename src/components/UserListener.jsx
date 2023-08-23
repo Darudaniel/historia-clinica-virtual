@@ -1,24 +1,31 @@
 "use client"
-import Login from '@/app/login/page';
 import { UserAuth } from '@/context/AuthContext';
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import Loader from './Loader';
 
 const UserListener = ({ children }) => {
   const {user} = UserAuth();  
-  const router = useRouter()
+  const router = useRouter();
+  const pathname = usePathname();
 
-  if(!user) {
-    router.push('/login')
-    return (
-      <Login />
-    )
-  } else {
+  if(user) {
     return (
       <div>{children}</div>
     )
-  }
-
-  
+  } else {
+    router.push('/login')
+    if (pathname == '/login') {
+      return (
+        <div>
+          {children}
+        </div>
+      )
+    } else {
+      return (
+        <Loader />
+      )
+    }
+  }  
 }
 
 export default UserListener

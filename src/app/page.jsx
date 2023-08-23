@@ -1,11 +1,10 @@
-"use client"
-import { useRouter } from 'next/navigation'
+import UserListener from "@/components/UserListener"
 
 const Home = () => {
-  const router = useRouter();
-  router.push('/login')
-  return (
-    <h1>Loading...</h1>
+  return(
+    <UserListener>
+      <div></div>
+    </UserListener>
   )
 }
 
