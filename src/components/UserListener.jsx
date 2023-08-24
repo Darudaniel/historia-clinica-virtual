@@ -2,33 +2,48 @@
 import { UserAuth } from '@/context/AuthContext';
 import { usePathname, useRouter } from 'next/navigation'
 import Loader from './Loader';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const UserListener = ({ children }) => {
   const {user} = UserAuth();  
   const router = useRouter();
   const pathname = usePathname();
+  const [loading, setLoading] = useState(true)
+
+  setTimeout(() => {
+    setLoading(false)
+  }, 4000);
 
   if(user) {
+    if (pathname == '/') {
+      router.push('/patients')
+    }
     return (
       <div>{children}</div>
     )
-  } else {
-    useEffect(() => {
-      router.push('/login')
-    }, [])
-    if (pathname == '/login') {
+  }
+
+  if(!loading) {
+    if(user) {
       return (
-        <div>
-          {children}
-        </div>
+        <div>{children}</div>
       )
     } else {
-      return (
-        <Loader />
-      )
-    }
-  }  
+      console.log('No hay usuario')
+      if (pathname == '/login') {
+        return (
+          <div>
+            {children}
+          </div>
+        )
+      } else {
+        router.push('/login')
+        return (
+          <Loader />
+        )
+      }
+    }  
+  }
 }
 
 export default UserListener

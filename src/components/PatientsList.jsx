@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation"
 import PatientButton from "./PatientButton"
+import Link from "next/link"
 
 const PatientsList = ({ patients }) => {
   
@@ -9,15 +10,21 @@ const PatientsList = ({ patients }) => {
   return (
     <div className="patients-list">
        {
-          patients.map((patient) => (
-            <PatientButton 
-              key={patient.identification} 
-              title={patient.name} 
-              subtitle={"Cama " + patient.bed} 
-              action={() => {router.push(`/patients/${patient.identification}`)}} 
-            />
+          patients.map((patient) => {
+            return (
             
-          ))
+              <Link href={`/patients/${patient.identification}`}>
+                  <PatientButton 
+                    key={patient.identification} 
+                    title={patient.name} 
+                    subtitle={"Cama " + patient.bed} 
+                    // action={() => {router.push(`/patients/${patient.identification}`)}} 
+                    action={() => {console.log('redireccionando...')}} 
+                  />
+              </Link>
+              
+            )
+          })
         }
     </div>
   )

@@ -1,15 +1,17 @@
 "use client"
 import '@/styles/components/MainButton.css'
 
-const MainButton = (props) =>  {
-
-  const handleClick = () => {
-    console.log('Soy Main Button')
-  }
+const MainButton = ({text, action}) =>  {
 
   return (
-    <button type="button" className="main-button" onClick={handleClick}>
-      {props.text}
+    <button 
+    type="button" 
+    className="main-button" 
+    onClick={() => {
+      action()
+    }}
+    >
+      {text}
     </button>
   )
 }

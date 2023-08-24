@@ -1,11 +1,22 @@
+"use client"
 import '@/styles/components/InputDate.css'
+import { useState } from 'react';
 
-const InputDate = (props) => {
+const InputDate = ({label, onDateChange}) => {
+
+  const [selectedDate, setSelectedDate] = useState('');
+
+  const handleDateChange = (event) => {
+    const newDate = event.target.value;
+    setSelectedDate(newDate);
+    onDateChange(newDate); // Llamamos a la función del padre con la nueva fecha
+  };
+
   return (
     <div className="input-date-container">
-      <label>{props.label}</label>
+      <label>{label}</label>
       <br />
-      <input type="date" className="input-date"/>
+      <input type="date" className="input-date" value={selectedDate} onChange={handleDateChange} />
     </div>
   )
 }

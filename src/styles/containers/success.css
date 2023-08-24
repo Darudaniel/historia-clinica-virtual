@@ -5,4 +5,10 @@
   align-items: center;
   min-height: 300px;
   max-width: 70vw;
+  padding-top: 90px;
+}
+
+.check-container .check {
+  width: 70px;
+  height: 70px;
 }
