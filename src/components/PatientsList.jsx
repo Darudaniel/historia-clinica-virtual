@@ -13,9 +13,8 @@ const PatientsList = ({ patients }) => {
           patients.map((patient) => {
             return (
             
-              <Link href={`/patients/${patient.identification}`}>
-                  <PatientButton 
-                    key={patient.identification} 
+              <Link href={`/patients/${patient.identification}`} key={patient.identification}>
+                  <PatientButton  
                     title={patient.name} 
                     subtitle={"Cama " + patient.bed} 
                     // action={() => {router.push(`/patients/${patient.identification}`)}} 

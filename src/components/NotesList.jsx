@@ -2,48 +2,66 @@ import '@/styles/components/NotesList.css'
 import DateDivision from "@/components/DateDivision"
 import TransparentButton from "./TransparentButton"
 import formatDate from '@/functions/formatDate'
+import formatHour from '@/functions/formatHour'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const NotesList = ({ notes }) => {
+
   return (
     <div className="notes-list-container">
       {
         notes.map((note, index, array) => {
+          const jsDate = note.date.toDate()
+          const formatedHour = formatHour(note.date)
+          const formatedDate = formatDate(note.date)
+          const fechaActualSinHoras = new Date(jsDate.getFullYear(), jsDate.getMonth(), jsDate.getDate());
+
+          const pathname = usePathname();
+
+          const notePath = `${pathname}/${note.note_id}`
+
           const previousElement = index > 0 ? array[index - 1] : null;
-          if(!previousElement) {
-            const formatedHour = `${note.date.getHours()}:${note.date.getMinutes()}`
-            const formatedDate = `${note.date.getDate()}/${note.date.getMonth()}/${note.date.getFullYear()}`
-            return (
-              <div className='note-button-container'>
-                <DateDivision date={formatedDate}/>
-                <TransparentButton
-                  key={note.note_id} 
-                  text={formatedHour} 
-                />
-              </div>
-            )
-          } else {
-            const fechaActualSinHoras = new Date(note.date.getFullYear(), note.date.getMonth(), note.date.getDate());
-            const fechaPreviaSinHoras = new Date(previousElement.date.getFullYear(), previousElement.date.getMonth(), previousElement.date.getDate());
+          if(previousElement) {
+
+            const previousElementJsDate = previousElement.date.toDate()
+            const fechaPreviaSinHoras = new Date(previousElementJsDate.getFullYear(), previousElementJsDate.getMonth(), previousElementJsDate.getDate());
+
             if (fechaActualSinHoras.getTime() == fechaPreviaSinHoras.getTime()) {
-              const formatedHour = `${note.date.getHours()}:${note.date.getMinutes()}`
               return (
-                <TransparentButton
-                  key={note.note_id} 
-                  text={formatedHour} 
-                />
-              )
-            } else {
-              const formatedDate = formatDate(note.date)
-              return(
-                <div className='note-button-container'>
-                  <DateDivision date={formatedDate}/>
+                <Link href={notePath}>
                   <TransparentButton
                     key={note.note_id} 
-                    text={`${note.date.getHours()}:${note.date.getMinutes()}`} 
+                    text={formatedHour}
+                  />
+                </Link>
+              )
+            } else {
+              return(
+                <div className='note-button-container' key={note.note_id} >
+                  <DateDivision date={formatedDate}/>
+                  <Link href={notePath}>
+                    <TransparentButton
+                      text={formatedHour}
                     />
+                  </Link>
                 </div>
               )
             }
+
+          } else {
+            
+            return (
+              <div className='note-button-container' key={note.note_id}>
+                <DateDivision date={formatedDate}/>
+                <Link href={notePath}>
+                    <TransparentButton
+                      text={formatedHour}
+                    />
+                  </Link>
+              </div>
+            )
+
           }
         })
       }

@@ -1,8 +1,11 @@
 "use client"
 import '@/styles/components/PatientButton.css'
-const PatientButton = (props) => {
+const PatientButton = ({action, title, subtitle}) => {
   const handleClick = () => {
-    props.action()
+    action?
+      action()
+    :
+      console.log('No hay acción')
   }
   return (
     <button
@@ -10,8 +13,8 @@ const PatientButton = (props) => {
       onClick={handleClick}
       className='patient-button'
     >
-      <p className='title'>{props.title}</p>
-      <p className='subtitle'>{props.subtitle}</p>
+      <p className='title'>{title}</p>
+      <p className='subtitle'>{subtitle}</p>
    </button> 
   )
 }
