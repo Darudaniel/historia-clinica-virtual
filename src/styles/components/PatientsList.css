@@ -1,4 +1,4 @@
-.patients-list {
+.patients-list--contaniner {
   display: flex;
   flex-direction: column;
   align-items: center;

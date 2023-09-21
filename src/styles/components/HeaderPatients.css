@@ -4,7 +4,7 @@
   max-width: 95vw;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5px;
+  padding: 25px 5px;
 }
 
 .profile-img-container {
@@ -15,4 +15,13 @@
   width: 60px;
   height: 60px;
   background-color: var(--secondary-color);
+}
+
+.no-button {
+  border: none;
+  background-color: transparent;
+}
+
+.no-button:hover {
+  color: var(--secondary-color);
 }

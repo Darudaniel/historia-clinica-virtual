@@ -1,6 +1,7 @@
 import { db } from "@/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import getPatient from "./getPatient";
+
 
 const getNotes = async (patientIdentification, user) => {
 
@@ -18,9 +19,9 @@ const getNotes = async (patientIdentification, user) => {
 
   if(patient) {
     const notesCollectionRef = collection(db, "notes")
-      const q = query(notesCollectionRef, where("patient", "==", patientIdentification));
+      const q = query(notesCollectionRef, where("patient", "==", patientIdentification), orderBy("date"));
       const data = await getDocs(q)
-      const notes = (data.docs.map((doc) => ({ ...doc.data() })))
+      const notes = (data.docs.reverse().map((doc) => ({ ...doc.data() })))
       return(notes)
   } else {
     throw new Error("Hubo un error al validar los datos del apciente", error)

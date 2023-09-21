@@ -48,7 +48,7 @@ const PatientPage = ({ params }) => {
     return (
       <div className="patient-page">
         <HeaderSimple title={patient.name} />
-        <div>perfil del paciente</div>
+        {/* <div>perfil del paciente</div> */}
         <Link href={`/write-note/${patientIdentification}`} >
           <TransparentButton text='+' />
         </Link>

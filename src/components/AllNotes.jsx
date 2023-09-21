@@ -10,7 +10,7 @@ const AllNotes = ({ notes }) => {
         notes.map((note) => {
           const noteDate = formatDate(note.date)
           return (
-            <div className="note-container">
+            <div className="note-container" key={note.note_id}>
               <DateDivision date={noteDate}/>
               <p className='note-content'>
                 {note.content}

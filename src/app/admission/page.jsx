@@ -9,6 +9,7 @@ import { doc, setDoc } from 'firebase/firestore'
 import { db } from '@/firebase'
 import { UserAuth } from '@/context/AuthContext'
 import { useRouter } from 'next/navigation'
+import Loader from '@/components/Loader'
 
 const Admission = () => {
 
@@ -19,6 +20,7 @@ const Admission = () => {
 
   const [inputValues, setInputValues] = useState({}); // Mantenemos un objeto para los valores de los inputs
   const [selectedDates, setSelectedDates] = useState({});
+  const [loading, setLoading] = useState(false)
 
   const handleInput = (inputName, value) => {
     setInputValues((prevInputValues) => ({
@@ -54,6 +56,7 @@ const Admission = () => {
   };
 
   const handleSubmit = () => {
+    setLoading(true)
     const formatedData = {
       "name": inputValues.input1, 
       "identification": inputValues.input2,
@@ -65,17 +68,24 @@ const Admission = () => {
     createNewPatient(formatedData)
   }
 
-  return (
-    <div className='admission'>
-      <HeaderSimple title='INGRESO' /> 
-      <section className='form-container'>
-        <InputNormal placeholder='Nombre' onInputChange={(value) => handleInput('input1', value)} />
-        <InputNormal placeholder='Cedula' onInputChange={(value) => handleInput('input2', value)} />
-        <InputDate label='Fecha de nacimiento' onDateChange={(date) => handleDateInputChange('dateInput1', date)} />   
-      </section>     
-      <MainButton text='Agregar' action={handleSubmit} />
-    </div>
-  )
+  if (!loading) {
+    return (
+      <div className='admission'>
+        <HeaderSimple title='INGRESO' /> 
+        <section className='form-container'>
+          <InputNormal placeholder='Nombre' onInputChange={(value) => handleInput('input1', value)} />
+          <InputNormal placeholder='Cedula' onInputChange={(value) => handleInput('input2', value)} />
+          <InputDate label='Fecha de nacimiento' onDateChange={(date) => handleDateInputChange('dateInput1', date)} />   
+        </section>     
+        <MainButton text='Agregar' action={handleSubmit} />
+      </div>
+    )
+  } else {
+    return (
+      <Loader />
+    )
+  }
+  
 }
 
 export default Admission
