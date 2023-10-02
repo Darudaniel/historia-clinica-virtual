@@ -1,6 +1,7 @@
 "use client"
 import '@/styles/components/GoogleLoginButton.css'
 import { UserAuth } from '@/context/AuthContext'
+import Image from 'next/image'
 
 const GoogleLoginButton = () => {
 
@@ -16,7 +17,14 @@ const GoogleLoginButton = () => {
 
   return (
     <button onClick={handleSignIn} type="button" className="google-login-button">
-      <img className= "google-icon" src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt="Google icon" />
+      <Image 
+      priority={true}
+      src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
+      width={20}
+      height={20}
+      alt="Google icon"
+      className= "google-icon"
+    />
       <p>Google</p>
     </button>
   )

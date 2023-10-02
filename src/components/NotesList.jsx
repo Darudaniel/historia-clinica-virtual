@@ -7,6 +7,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const NotesList = ({ notes }) => {
+  
+  const pathname = usePathname();
 
   return (
     <div className="notes-list-container">
@@ -17,7 +19,6 @@ const NotesList = ({ notes }) => {
           const formatedDate = formatDate(note.date)
           const fechaActualSinHoras = new Date(jsDate.getFullYear(), jsDate.getMonth(), jsDate.getDate());
 
-          const pathname = usePathname();
 
           const notePath = `${pathname}/${note.note_id}`
 
@@ -29,9 +30,8 @@ const NotesList = ({ notes }) => {
 
             if (fechaActualSinHoras.getTime() == fechaPreviaSinHoras.getTime()) {
               return (
-                <Link href={notePath}>
+                <Link href={notePath} key={note.note_id}>
                   <TransparentButton
-                    key={note.note_id} 
                     text={formatedHour}
                   />
                 </Link>
