@@ -23,3 +23,9 @@
 .subtitle {
   color: var(--secondary-color);
 }
+
+@supports (-webkit-touch-callout: none) {
+  button {
+    color: var(--dark-color);
+  }
+}
