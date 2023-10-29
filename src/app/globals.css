@@ -137,7 +137,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--dark-color);
   text-decoration: none;
 }
 
