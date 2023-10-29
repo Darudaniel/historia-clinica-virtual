@@ -141,6 +141,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  color: var(--dark-color);
+}
+
 @media (prefers-color-scheme: light) {
   html {
     color-scheme: light;

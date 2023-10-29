@@ -20,6 +20,7 @@
 .no-button {
   border: none;
   background-color: transparent;
+  font-size: 1.6rem;
 }
 
 .no-button:hover {
