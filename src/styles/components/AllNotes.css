@@ -1,16 +1,16 @@
 .all-notes {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .note-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  padding: 0 18px;
 }
 
 .note-content {
+  font-size: 1.6rem;
   margin: 0 10px;
-  padding: 0 20px;
+  padding: 0 10px;
 }
