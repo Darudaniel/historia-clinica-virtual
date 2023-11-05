@@ -35,6 +35,7 @@ const TransparentButton = ({ text, action}) => {
     // </CustomButton>
     <button 
       className='transparent-button'
+      style={{ color: 'black' }}
       type="button"
       onClick={() => {
         makeAction()

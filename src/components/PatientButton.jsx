@@ -13,7 +13,7 @@ const PatientButton = ({action, title, subtitle}) => {
       onClick={handleClick}
       className='patient-button'
     >
-      <p className='title'>{title}</p>
+      <p className='title' style={{ color: 'black' }}>{title}</p>
       <p className='subtitle'>{subtitle}</p>
    </button> 
   )
