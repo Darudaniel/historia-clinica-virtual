@@ -30,6 +30,11 @@ body {
   font-family: var(--font-principal);
 }
 
+a button {
+  all: unset; /* Restablece todos los estilos */
+  color: black; /* Establece el color del texto */
+}
+
 a {
   color: var(--dark-color); 
   text-decoration: none;
