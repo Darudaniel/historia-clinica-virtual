@@ -1,10 +1,14 @@
+"use client"
 import UserListener from "@/components/UserListener"
+import {NextUIProvider} from "@nextui-org/react";
 
 const Home = () => {
   return(
-    <UserListener>
-      <div></div>
-    </UserListener>
+    <NextUIProvider>
+      <UserListener>
+        <div></div>
+      </UserListener>
+    </NextUIProvider>
   )
 }
 

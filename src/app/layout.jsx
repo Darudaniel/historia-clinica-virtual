@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ClientAuthContextProvider from '@/context/ClientAuthContextProvider'
+import {Providers} from "./providers";
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,7 +17,9 @@ export default function RootLayout({ children }) {
       <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
       <body className={inter.className}>
         <ClientAuthContextProvider>
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </ClientAuthContextProvider>
       </body>
     </html>

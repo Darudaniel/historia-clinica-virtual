@@ -69,23 +69,6 @@ const Patients = () => {
         <Link href="/admission">
           <TransparentButton text="+" action={handleClick} />
         </Link>
-        {/* <Button
-          className="add-patient-button"
-          variant="outlined"
-          onClick={() => {
-            alert('clicked');
-          }}
-        >
-          +
-        </Button> */}
-        {/* <TransparentButton 
-          variant="outlined"
-          onClick={() => {
-            sayHello()
-          }}
-        >
-          +
-        </TransparentButton> */}
         <PatientsList patients={patients} />
       </section>
     </div>

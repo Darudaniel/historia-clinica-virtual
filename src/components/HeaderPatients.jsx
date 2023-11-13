@@ -17,10 +17,7 @@ const HeaderPatients = () => {
 
   return (
     <div className='header-patients-container'>
-      {/* <div className='profile-img-container'>
-        <p>img</p>
-      </div> */}
-      <h1>PACIENTES</h1>
+      <h1 className='text-3xl font-bold'>PACIENTES</h1>
       <div className='menu-container'>
         <button className="no-button" type='button' onClick={handleSignOut}>Cerrar Sesión</button>
         {/* <BurgerMenu /> */}

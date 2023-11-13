@@ -3,6 +3,7 @@ import logo from '@/resources/logo.png'
 import '@/styles/components/Loader.css'
 
 const Loader = () => {
+  
   return (
     <div className='img-loader-container'>
       <Image 
@@ -13,6 +14,7 @@ const Loader = () => {
       alt="logo"
       className='img-loader'
     />
+    
     </div>
   )
 }
