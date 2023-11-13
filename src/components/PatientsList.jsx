@@ -17,7 +17,10 @@ const PatientsList = ({ patients }) => {
             return (
               
               <Link href={`/patients/${patient.identification}`} key={patient.identification}>
-
+                <div className='patient-button'>
+                  <p className='title' style={{ color: 'black' }}>{patient.name}</p>
+                  <p className='subtitle'>{patient.identification}</p>
+                </div> 
                   {/* <User   
                     name={patient.name}
                     description={(
@@ -28,12 +31,12 @@ const PatientsList = ({ patients }) => {
                   /> */}
 
 
-                  <PatientButton  
+                  {/* <PatientButton  
                     title={patient.name} 
                     subtitle={patient.identification} 
                     // action={() => {router.push(`/patients/${patient.identification}`)}} 
                     action={() => {console.log('redireccionando...')}} 
-                  />
+                  /> */}
               </Link>
               
             )

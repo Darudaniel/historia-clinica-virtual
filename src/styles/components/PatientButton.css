@@ -26,7 +26,7 @@
 }
 
 @supports (-webkit-touch-callout: none) {
-  button {
+  button, a {
     color: var(--dark-color);
   }
 }

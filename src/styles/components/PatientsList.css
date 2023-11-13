@@ -3,3 +3,37 @@
   flex-direction: column;
   align-items: center;
 }
+
+
+.patient-button {
+  min-width: 270px;
+  max-width: 350px;
+  margin: 7px;
+  background-color: transparent;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  text-align: left;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  padding: 10px 15px;
+  color: var(--dark-color);
+} 
+
+.title, .subtitle {
+  margin: 0;
+}
+
+.title {
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.subtitle {
+  color: var(--secondary-color);
+}
+
+@supports (-webkit-touch-callout: none) {
+  button, a {
+    color: var(--dark-color);
+  }
+}
