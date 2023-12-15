@@ -1,4 +1,5 @@
 .transparent-button {
+  color: black;
   color: var(--dark-color);
   min-width: 250px;
   max-width: 350px;

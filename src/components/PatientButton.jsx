@@ -2,7 +2,7 @@
 import '@/styles/components/PatientButton.css'
 // import {User, Link} from "@nextui-org/react";
 
-const PatientButton = ({action, title, subtitle}) => {
+const PatientButton = ({title, subtitle}) => {
   // const handleClick = () => {
   //   action?
   //     action()
