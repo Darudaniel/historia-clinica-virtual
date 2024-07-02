@@ -59,18 +59,25 @@ const Patients = () => {
   useEffect(() => {    
     validateDoctor()
     getPatients()
-
   }, [])
 
   return(
     <div>
       <HeaderPatients />
-      <section className="patients-list">
-        <Link href="/admission">
-          <TransparentButton text="+" action={handleClick} />
-        </Link>
-        <PatientsList patients={patients} />
-      </section>
+      <div className='patients'>
+        <section className="patients-list">
+          <Link href="/admission">
+            <TransparentButton text="+" action={handleClick} />
+          </Link>
+          <PatientsList patients={patients} />
+        </section>
+        <section className='dashboard'>
+          <p>Hola de nuevo, sigue adelante con la misma pasión y entrega que te ha llevado hasta aquí. En cada historia clínica, estás escribiendo un capítulo de esperanza y cuidado en la vida de alguien. ¡Gracias por tu invaluable labor!</p>
+          <br />
+          <h2>Pacientes atendidos</h2>
+          <p>{patients.length}</p>
+        </section>
+      </div>
     </div>
   )
 }

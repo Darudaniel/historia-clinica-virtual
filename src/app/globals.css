@@ -7,7 +7,7 @@
 :root {
   --font-principal: 'Inter', sans-serif;
   --primary-color: rgb(228, 225, 225);
-  --secondary-color: #2F80ED;
+  --secondary-color: #2f80ed;
   --third-color: #5861E2;
   --dark-color: rgb(17, 17, 17);
 }
@@ -27,6 +27,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(122deg, rgba(255,255,255,1) 0%, rgba(143,186,245,0.4318102240896359) 90%, rgba(47,128,237,0.4290091036414566) 100%);
+  
 }
 
 html,
@@ -55,4 +58,16 @@ button {
 
 a:-webkit-any-link {
   color: var(--dark-color);
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background: linear-gradient(122deg, rgba(255,255,255,1) 0%, rgba(143,186,245,0.4318102240896359) 90%, rgba(47,128,237,0.4290091036414566) 100%);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    background: linear-gradient(122deg, rgba(255,255,255,1) 0%, rgba(143,186,245,0.4318102240896359) 78%, rgba(47,128,237,0.4290091036414566) 100%);
+  }
 }

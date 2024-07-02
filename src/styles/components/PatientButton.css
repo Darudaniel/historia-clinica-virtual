@@ -30,3 +30,23 @@
     color: var(--dark-color);
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .patient-button {
+    min-width: 320px;
+    max-width: 500px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .patient-button {
+    min-width: 520px;
+    max-width: 700px;
+    padding: 10px 15px;
+  }
+
+  .title, .subtitle {
+    margin: 5px;
+    font-size: 1.8rem;
+  }
+}
