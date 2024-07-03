@@ -33,16 +33,19 @@ const TransparentButton = ({ text, action}) => {
     // >
     //   {text}
     // </CustomButton>
-    <button 
-      className='transparent-button'
-      style={{ color: 'black' }}
-      type="button"
-      onClick={() => {
-        makeAction()
-      }}
-    >
+    // <button 
+    //   className='transparent-button'
+    //   style={{ color: 'black' }}
+    //   type="button"
+    //   onClick={() => {
+    //     makeAction()
+    //   }}
+    // >
+    //   {text}
+    //  </button>
+    <div className='transparent-button'>
       {text}
-     </button>
+    </div>
   )
 }
 

@@ -1,3 +1,7 @@
+.patients {
+  max-width: 90vw;
+}
+
 .patients-list {
   display: flex;
   flex-direction: column;

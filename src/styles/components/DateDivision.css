@@ -1,9 +1,8 @@
 .date-division {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  /* width: 100%; */
-  width: 310px;
+  justify-content: space-between;
+  width: 80vw;
   margin: 20px 0;
 }
 
@@ -14,7 +13,28 @@
 
 .line {
   border-color: black;
-  width: 100px;
+  width: 20vw;
   height: 0.5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .date-division {
+    width: 52vw;
+  }
+
+  .line {
+    width: 15vw;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .date-division {
+    width: 48vw;
+    max-width: 500px;
+  }
+  
+  .line {
+    width: 12vw;
+  }
 }
 
