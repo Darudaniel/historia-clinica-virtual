@@ -18,7 +18,7 @@
   .dashboard {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     width: 100%;
     max-width: 320px;
     margin: 7px 0px 10px 30px;
@@ -39,6 +39,6 @@
 
 @media only screen and (min-width: 1024px) {
   .dashboard {
-    max-width: 780px;
+    max-width: 660px;
   }
 }
