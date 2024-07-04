@@ -37,8 +37,9 @@ const NotesList = ({ notes }) => {
                 </Link>
               )
             } else {
+              //En este caso: (Cuando hay una nota que es de diferente fecha) retorna un componente DateDivision sin embargo, hay que retornar tambien la nota por lo que eso explica que la ultima nota de cada dia este dentro de un div junto con el date division
               return(
-                <div className='note-button-container' key={note.note_id} >
+                <div className='note-button-and-date-container' key={note.note_id} >
                   <DateDivision date={formatedDate}/>
                   <Link href={notePath}>
                     <TransparentButton
@@ -52,7 +53,7 @@ const NotesList = ({ notes }) => {
           } else {
             
             return (
-              <div className='note-button-container' key={note.note_id}>
+              <div className='note-button-and-date-container' key={note.note_id}>
                 <DateDivision date={formatedDate}/>
                 <Link href={notePath}>
                     <TransparentButton

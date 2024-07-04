@@ -9,4 +9,5 @@
   padding: 10px;
   margin-top: 10px;
   font-family: var(--font-principal);
+  min-width: 40vw;
 }

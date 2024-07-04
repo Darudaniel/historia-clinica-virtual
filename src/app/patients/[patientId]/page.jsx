@@ -46,19 +46,20 @@ const PatientPage = ({ params }) => {
 
   if (!loading) {
     return (
-      <div className="patient-page">
-        <HeaderSimple title={patient.name} />
-        {/* <div>perfil del paciente</div> */}
-        <Link href={`/write-note/${patientIdentification}`} >
-          <TransparentButton text='+' />
-        </Link>
-        {
-         notes ? 
-            <NotesList notes={notes}/>
-          :
-            console.log('El paciente no tiene notas')
-        }
-      </div>
+     
+        <div className="patient-page">
+          <HeaderSimple title={patient.name} />
+          <Link href={`/write-note/${patientIdentification}`} >
+            <TransparentButton text='+' />
+          </Link>
+          {
+          notes ? 
+              <NotesList notes={notes}/>
+            :
+              console.log('El paciente no tiene notas')
+          }
+        </div> 
+    
     )  
   } else {
     return(<Loader />)

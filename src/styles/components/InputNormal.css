@@ -4,4 +4,17 @@
   margin: 5px;
   padding: 10px;
   width: 100%;
+  font-size: 1.4rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .input-normal {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .input-normal {
+    font-size: 2rem;
+  }
 }

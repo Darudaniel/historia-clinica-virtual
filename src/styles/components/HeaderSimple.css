@@ -1,7 +1,17 @@
 .header-simple {
   display: flex;
-  justify-content: space-between;
-  min-width: 90vw;
-  max-width: 95vw;
-  padding: 20px 5px;
+  justify-content: left;
+  width: 80vw;
+  min-width: 270px;
+  padding: 20px 0;
+}
+
+.header-simple h1 {
+  margin: 10px 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-simple {
+    padding: 10px;
+  }
 }
