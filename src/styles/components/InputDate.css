@@ -1,6 +1,7 @@
 .input-date-container {
   margin: 5px;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  width: 80vw;
 }
 
 .input-date {
@@ -11,3 +12,10 @@
   font-family: var(--font-principal);
   min-width: 40vw;
 }
+
+@media only screen and (min-width: 768px) {
+  .input-date {
+    min-width: 10vw;
+  }
+}
+

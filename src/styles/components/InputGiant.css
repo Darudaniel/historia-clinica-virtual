@@ -1,19 +1,13 @@
 .input-giant {
   display: flex;
   align-items: flex-start;
-  width: 80%; 
+  width: 80vw; 
   height: 50vh;
   border: 2px solid var(--secondary-color);
   border-radius: 7px;
   margin: 5px;
   padding: 10px;
-  font-size: 1.4rem;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 1.6rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -24,6 +18,7 @@
 
 @media only screen and (min-width: 1024px) {
   .input-giant {
+    width: 60vw; 
     font-size: 2rem;
   }
 }

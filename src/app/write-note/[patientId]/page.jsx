@@ -1,4 +1,5 @@
 "use client"
+import '@/styles/containers/writeNote.css'
 import HeaderSimple from "@/components/HeaderSimple"
 import InputGiant from "@/components/InputGiant"
 import MainButton from "@/components/MainButton"
@@ -6,25 +7,33 @@ import { createTimestamp, db } from "@/firebase"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import { UserAuth } from '@/context/AuthContext'
+import Loader from '@/components/Loader'
 
 const WriteNote = ({ params }) => {
 
   const [inputValues, setInputValues] = useState({}); // Mantenemos un objeto para los valores de los inputs
+  const [patient, setPatient] = useState({})
+  const [loading, setLoading] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
+
+  const { user } = UserAuth()
 
   const handleInput = (inputName, value) => {
     setInputValues((prevInputValues) => ({
       ...prevInputValues,
       [inputName]: value, // Actualizamos el valor del input específico en el objeto
     }));
-    // console.log(JSON.stringify(inputValues, null, 2))
   };
+
+  const doctorObject = user
+  const doctorIdentification = doctorObject.uid
 
   const patientIdentification = params.patientId
   const patientDocumentRef = doc(db, "patients", patientIdentification)
   const router = useRouter()
 
-  const [patient, setPatient] = useState({})
-  const [loading, setLoading] = useState(true)
+ 
 
   const getPatient = async () => {
     try {
@@ -61,6 +70,8 @@ const WriteNote = ({ params }) => {
 
   const handleSubmit = () => {
 
+    setIsDisabled(true)
+
     const getRandomInt = (max) => {
       const number = Math.floor(Math.random() * max);
       const string = number.toString()
@@ -70,11 +81,9 @@ const WriteNote = ({ params }) => {
     const noteId = getRandomInt(1000000)
 
     const currentDate = new Date()
-    // const todayFormat = firebase.firestore.Timestamp.fromDate(today)
-    // const todayFormat = today.toString()
-    // // const todayFormat = new Date()
 
     const formatedData = {
+      "doctor": doctorIdentification,
       "patient": patientIdentification,
       "content": inputValues.input, 
       "note_id": noteId,
@@ -93,12 +102,19 @@ const WriteNote = ({ params }) => {
     return (
       <div>
         <HeaderSimple title={patient.name} />
-        <div className="form-container">
+        <div className="giant-form-container">
           <InputGiant placeholder='Nombre' onInputChange={(value) => handleInput('input', value)} />
-          <MainButton text='Guardar' action={handleSubmit} />
+          <div style={{ display: isDisabled ? 'none' : 'block' }}>
+            <MainButton text='Guardar' action={handleSubmit} />
+          </div>
         </div>
       </div>
     )
+  } else {
+    return (
+      <Loader />
+    )
+
   }
 }
 

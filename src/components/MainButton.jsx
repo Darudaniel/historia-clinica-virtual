@@ -10,7 +10,7 @@ const MainButton = ({text, action}) =>  {
     setIsDisabled(true)
     setTimeout(() => {
       setIsDisabled(false)
-    }, 30000);
+    }, 5000);
 
     action ?
     action()
