@@ -3,12 +3,13 @@ import '@/styles/containers/writeNote.css'
 import HeaderSimple from "@/components/HeaderSimple"
 import InputGiant from "@/components/InputGiant"
 import MainButton from "@/components/MainButton"
-import { createTimestamp, db } from "@/firebase"
-import { doc, getDoc, setDoc } from "firebase/firestore"
+import { db } from "@/firebase"
+import { doc, getDoc } from "firebase/firestore"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { UserAuth } from '@/context/AuthContext'
 import Loader from '@/components/Loader'
+import createNewNote from '@/functions/createNewNote'
 
 const WriteNote = ({ params }) => {
 
@@ -19,13 +20,6 @@ const WriteNote = ({ params }) => {
 
   const { user } = UserAuth()
 
-  const handleInput = (inputName, value) => {
-    setInputValues((prevInputValues) => ({
-      ...prevInputValues,
-      [inputName]: value, // Actualizamos el valor del input específico en el objeto
-    }));
-  };
-
   const doctorObject = user
   const doctorIdentification = doctorObject.uid
 
@@ -33,13 +27,10 @@ const WriteNote = ({ params }) => {
   const patientDocumentRef = doc(db, "patients", patientIdentification)
   const router = useRouter()
 
- 
-
-  const getPatient = async () => {
+  const initialPatientSetting = async () => {
     try {
       const docSnap = await getDoc(patientDocumentRef);
       if (docSnap.exists()) {
-        console.log('Paciente anteriormente registrado, no es necesario crear un nuevo registro')
         setPatient(docSnap.data())
         setLoading(false)
       } else {
@@ -51,22 +42,12 @@ const WriteNote = ({ params }) => {
     }
   }
 
-  const createNewNote = (formatedData) => {
-    try {
-      console.log('Agregando nota nueva')
-      const noteData = formatedData
-      setDoc(doc(db, "notes", noteData.note_id), noteData)
-        .then(() => {
-          console.log("Registro de nota exitoso.");
-          router.push('/success/1')
-        })
-        .catch((error) => {
-          console.error("Error agregando el documento:", error);
-        });
-    } catch (error) {
-      console.error("Error al intentar agregar al nota", error);
-    }
-  }
+  const handleInput = (inputName, value) => {
+    setInputValues((prevInputValues) => ({
+      ...prevInputValues,
+      [inputName]: value, // Actualizamos el valor del input específico en el objeto
+    }));
+  };
 
   const handleSubmit = () => {
 
@@ -90,12 +71,12 @@ const WriteNote = ({ params }) => {
       "date": currentDate,
     }
 
-    createNewNote(formatedData)
+    createNewNote(formatedData, router)
 
   }
 
   useEffect(() => {
-    getPatient()
+    initialPatientSetting()
   }, [])
 
   if(!loading) {

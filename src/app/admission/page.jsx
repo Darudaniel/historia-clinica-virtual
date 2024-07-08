@@ -5,13 +5,11 @@ import InputNormal from '@/components/InputNormal'
 import MainButton from '@/components/MainButton'
 import InputDate from '@/components/InputDate'
 import { useState } from 'react'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
-import { db } from '@/firebase'
 import { UserAuth } from '@/context/AuthContext'
 import { useRouter } from 'next/navigation'
 import Loader from '@/components/Loader'
-import updateAttending from '@/functions/updateAttending'
 import validatePatientAdmission from '@/functions/validatePatientAdmission'
+import createNewPatient from '@/functions/createNewPatient'
 
 const Admission = () => {
 
@@ -30,24 +28,6 @@ const Admission = () => {
       [inputName]: value, 
     }));
   };
-
-  const createNewPatient = (formatedData) => {
-    console.log("esto se esta ejecutando si o si")
-    try {
-      console.log('Agregando paciente nuevo')
-      const patientData = formatedData
-      setDoc(doc(db, "patients", patientData.identification), patientData)
-        .then(() => {
-          console.log("Registro inicial del paciente exitoso.");
-          router.push('/success/0')
-        })
-        .catch((error) => {
-          console.error("Error durante el registro inicial del paciente:", error);
-        });
-    } catch (error) {
-      console.error("Error al intentar agregar al paciente", error);
-    }
-  }
 
   const handleDateInputChange = (inputName, date) => {
     setSelectedDates((prevSelectedDates) => ({
@@ -76,7 +56,14 @@ const Admission = () => {
               doctorId
             ]
           }
-          createNewPatient(formatedData)
+          
+          try {
+            createNewPatient(formatedData, router);
+          } catch (error) {
+            console.error("Error al agregar el paciente", error);
+          }
+          
+
         } else {
           router.push('/success/2')
           console.log("El paciente ya cuenta con registro en la plataforma y ahora estara en tu lista de pacientes")
