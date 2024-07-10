@@ -38,10 +38,21 @@ const Admission = () => {
 
   const handleSubmit = async () => {
     setLoading(true)
+    const patientName = inputValues.input1
     const patientIdentification = inputValues.input2
+    const patientBirth = selectedDates.dateInput1
 
-    if (!/^\d+$/.test(patientIdentification)) { //Es un numero de ceula valido?
-      console.error('Por favor ingresa un numero de cedula valido');
+    if (!patientName) { //Hay un nombre?
+      alert('Por favor registra el nombre del paciente');
+      setLoading(false);
+      return
+    } else if (!patientBirth) { //Hay una fecha de nacimiento?
+      console.log(patientBirth)
+      alert('Por favor registra la fecha de nacimiento del paciente');
+      setLoading(false);
+      return
+    } else if (!/^\d+$/.test(patientIdentification)) { //Es un numero de ceula valido?
+      alert('Por favor ingresa un numero de cedula valido');
       setLoading(false);
       return
     } else {
@@ -49,9 +60,9 @@ const Admission = () => {
         const isANewPatient = await validatePatientAdmission(patientIdentification, user)
         if (isANewPatient) {
           const formatedData = {
-            "name": inputValues.input1, 
-            "identification": inputValues.input2,
-            "birth": selectedDates.dateInput1,
+            "name": patientName, 
+            "identification": patientIdentification,
+            "birth": patientBirth,
             "attending": [
               doctorId
             ]

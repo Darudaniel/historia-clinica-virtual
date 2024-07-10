@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&family=Inter:wght@100;200400;500;800;900&display=swap');
+
+/*Esto no se borra porque si ahorra bastantes estilos */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -8,6 +8,8 @@ import HeaderPatients from "@/components/HeaderPatients";
 import PatientsList from '@/components/PatientsList';
 import TransparentButton from '@/components/TransparentButton';
 import Link from 'next/link';
+import getPatients from '@/functions/getPatients';
+import Search from '@/components/Search';
 
 const Patients = () => {
 
@@ -51,14 +53,14 @@ const Patients = () => {
     }
   }
 
-  const getPatients = async () => {
-    const data = await getDocs(q)
-    setPatients(data.docs.map((doc) => ({ ...doc.data() })))
+  const initialPatientsListSetting = async () => {
+    const data = await getPatients(doctorId)
+    setPatients(data)
   }
 
   useEffect(() => {    
     validateDoctor()
-    getPatients()
+    initialPatientsListSetting()
   }, [])
 
   return(
@@ -66,6 +68,7 @@ const Patients = () => {
       <HeaderPatients />
       <div className='patients'>
         <section className="patients-list">
+          <Search />
           <Link href="/admission">
             <TransparentButton text="+" action={handleClick} />
           </Link>

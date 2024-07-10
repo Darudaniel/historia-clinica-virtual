@@ -14,7 +14,7 @@ const validatePatientAdmission = async (patientIdentification, doctorObject) => 
       
       if (!docSnap.data()) { //El paciente existe?
 
-        console.log("El paciente no esta registrado enla base de datos")
+        console.log("El paciente no esta registrado en la base de datos")
         resolve(true);
 
       } else { // El paciente esta registrado
