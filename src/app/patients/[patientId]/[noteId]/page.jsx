@@ -3,7 +3,6 @@ import '@/styles/containers/notePage.css'
 import HeaderSimple from "@/components/HeaderSimple"
 import TransparentButton from "@/components/TransparentButton"
 import AllNotes from '@/components/AllNotes'
-import { useRouter } from 'next/navigation'
 import { UserAuth } from '@/context/AuthContext'
 import getNotes from '@/functions/getNotes'
 import Loader from '@/components/Loader'
@@ -16,9 +15,6 @@ const NotePage = ({ params }) => {
   const [notes, setNotes] = useState({})
 
   const patientIdentification = params.patientId
-
-  const router = useRouter()
-
   const { user } = UserAuth()
 
   useEffect(() => {
