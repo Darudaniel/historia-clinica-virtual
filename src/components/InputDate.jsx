@@ -6,6 +6,15 @@ const InputDate = ({label, onDateChange}) => {
 
   const [selectedDate, setSelectedDate] = useState('');
 
+  // Obtener la fecha actual
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+
+  // Formatear la fecha como YYYY-MM-DD
+  const maxDate = `${year}-${month}-${day}`;
+
   const handleDateChange = (event) => {
     const newDate = event.target.value;
     setSelectedDate(newDate);
@@ -16,7 +25,7 @@ const InputDate = ({label, onDateChange}) => {
     <div className="input-date-container">
       <label>{label}</label>
       <br />
-      <input type="date" className="input-date" value={selectedDate} onChange={handleDateChange} />
+      <input type="date" max={maxDate} className="input-date" value={selectedDate} onChange={handleDateChange} />
     </div>
   )
 }

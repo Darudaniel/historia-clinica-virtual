@@ -38,17 +38,25 @@ const Admission = () => {
 
   const handleSubmit = async () => {
     setLoading(true)
+
+    
     const patientName = inputValues.input1
     const patientIdentification = inputValues.input2
     const patientBirth = selectedDates.dateInput1
+    
+    const currentDate = new Date()
+    const patientBirthFormatted = new Date(patientBirth)
 
     if (!patientName) { //Hay un nombre?
       alert('Por favor registra el nombre del paciente');
       setLoading(false);
       return
     } else if (!patientBirth) { //Hay una fecha de nacimiento?
-      console.log(patientBirth)
       alert('Por favor registra la fecha de nacimiento del paciente');
+      setLoading(false);
+      return
+    } else if (patientBirthFormatted > currentDate) { //La fecha de nacimiento es posterior a hoy?
+      alert('No se pueden registrar fechas posteriores a la fecha actual');
       setLoading(false);
       return
     } else if (!/^\d+$/.test(patientIdentification)) { //Es un numero de ceula valido?
@@ -57,6 +65,10 @@ const Admission = () => {
       return
     } else {
       try {
+        console.log(currentDate)
+        console.log(patientBirth)
+        console.log(patientBirthFormatted)
+        console.log(patientBirthFormatted > currentDate)
         const isANewPatient = await validatePatientAdmission(patientIdentification, user)
         if (isANewPatient) {
           const formatedData = {

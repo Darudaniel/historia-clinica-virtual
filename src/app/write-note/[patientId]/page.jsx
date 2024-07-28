@@ -84,7 +84,7 @@ const WriteNote = ({ params }) => {
       <div>
         <HeaderSimple title={patient.name} />
         <div className="giant-form-container">
-          <InputGiant placeholder='Nombre' onInputChange={(value) => handleInput('input', value)} />
+          <InputGiant placeholder='Escribe una historia clínica' onInputChange={(value) => handleInput('input', value)} />
           <div style={{ display: isDisabled ? 'none' : 'block' }}>
             <MainButton text='Guardar' action={handleSubmit} />
           </div>
