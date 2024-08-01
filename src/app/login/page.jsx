@@ -42,7 +42,7 @@ const Login = () => {
           />
         </div>
         <div className='login-message-container'>
-          <h2 className='login-message'>Inicia sesion con Google para comenzar</h2>
+          <h2 className='login-message'>Inicia sesión con Google para comenzar</h2>
         </div>
         {/* <InputNormal placeholder='Usuario' />
         <InputNormal placeholder='Contraseña' />

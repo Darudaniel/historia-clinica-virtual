@@ -30,14 +30,14 @@ const UserListener = ({ children }) => {
       )
     } else {
       console.log('No hay usuario')
-      if (pathname == '/login') {
+      if (pathname == '/login' | pathname == '/home') {
         return (
           <div>
             {children}
           </div>
         )
       } else {
-        router.push('/login')
+        router.push('/home')
         return (
           <Loader />
         )

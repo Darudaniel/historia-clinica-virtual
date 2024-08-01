@@ -1,0 +1,60 @@
+.home {
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.header-home {
+  margin: 10px;
+}
+
+.title-home {
+  font-size: 3.5rem;
+  font-weight: bolder;
+}
+
+.presentation-text {
+  margin: 20px 0;
+  font-size: 1.8rem;
+  max-width: 80vw;
+}
+
+.information-dynamic--container {
+  max-width: 750px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.features-container {
+  margin: 10px;
+  max-width: 400px;
+}
+
+.features-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.features-list--container {
+  margin: 35px 0;
+}
+
+.features-container li {
+  font-size: 1.6rem;
+}
+
+.demo-video {
+  padding: 10px;
+}
+
+.youtube-video--container {
+  display: flex;
+  padding: 20px 0;
+}
+
+.legal-area-section {
+  padding: 0 10px;
+}
