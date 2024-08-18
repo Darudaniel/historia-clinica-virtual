@@ -1,4 +1,7 @@
 .home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 1000px;
   padding: 20px;
 }
@@ -19,12 +22,12 @@
 }
 
 .information-dynamic--container {
+  align-self: self-start;
   max-width: 750px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 15px;
-  margin: 20px 0;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .features-container {
@@ -47,6 +50,9 @@
 }
 
 .demo-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
 }
 
@@ -56,5 +62,24 @@
 }
 
 .legal-area-section {
+  align-self: self-start;
   padding: 0 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .home {
+    align-items: flex-start;
+  }
+
+  .information-dynamic--container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    gap: 15px;
+  }  
+
+  .demo-video {
+    align-items: self-start;
+  }
 }

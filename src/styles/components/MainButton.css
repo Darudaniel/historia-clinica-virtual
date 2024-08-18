@@ -1,13 +1,15 @@
 .main-button {
+  min-width: 100px;
   max-width: 470px;
   margin: 10px;
-  padding: 10px;
+  padding: 10px 14px;
   background-color: var(--third-color);
   border: none;
   border-radius: 5px;
   color: var(--primary-color);
   font-size: 1.6rem;
   font-weight: bold;
+  text-align: center;
 }
 
 @media only screen and (min-width: 1024px) {

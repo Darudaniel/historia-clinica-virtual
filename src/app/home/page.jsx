@@ -19,10 +19,10 @@ const Home = () => {
           <h1 className="title-home">Historia Clínica Virtual</h1>
           <p className="presentation-text">Mientras otros sistemas consumen el 70% del tiempo de la consulta, nuestra interfaz clara y fluida facilita un registro rápido y preciso de la historia clinica. Optimiza tu tiempo y enfócate en lo que realmente importa: tus pacientes.</p>
         </section>
-        <Link href={`/login`}>
-          <MainButton text='Probar ahora' action={handleSubmit} />
-        </Link>
       </header>
+      <Link href={`/login`}>
+        <MainButton text='Probar software' action={handleSubmit} />
+      </Link>
       <div className="information-dynamic--container">
         <section className="demo-video">
           <h2 className="features-title">Mira la plataforma</h2>
