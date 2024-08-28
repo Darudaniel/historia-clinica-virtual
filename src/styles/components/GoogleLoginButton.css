@@ -3,14 +3,14 @@
   justify-content: space-between;
   align-items: center;
   margin: 10px;
-  padding: 7px 35px;
+  padding: 14px 40px;
   background-color: transparent;
   border: 1px solid var(--secondary-color);
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 1.6rem;
 }
 
 .google-icon {
-  margin: 0 5px;
+  margin-right: 14px;
   width: 20px;
 }
