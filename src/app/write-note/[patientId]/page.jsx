@@ -10,6 +10,7 @@ import { useEffect, useState } from "react"
 import { UserAuth } from '@/context/AuthContext'
 import Loader from '@/components/Loader'
 import createNewNote from '@/functions/createNewNote'
+import EditorComponent from '@/components/EditorComponent'
 
 const WriteNote = ({ params }) => {
 
@@ -84,7 +85,8 @@ const WriteNote = ({ params }) => {
       <div>
         <HeaderSimple title={patient.name} />
         <div className="giant-form-container">
-          <InputGiant placeholder='Escribe una historia clínica' onInputChange={(value) => handleInput('input', value)} />
+          <EditorComponent onInputChange={(value) => handleInput('input', value)} />
+          {/* <InputGiant placeholder='Escribe una historia clínica' onInputChange={(value) => handleInput('input', value)} /> */}
           <div style={{ display: isDisabled ? 'none' : 'block' }}>
             <MainButton text='Guardar' action={handleSubmit} />
           </div>

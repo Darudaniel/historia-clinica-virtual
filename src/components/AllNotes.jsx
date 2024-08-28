@@ -1,6 +1,7 @@
 import '@/styles/components/AllNotes.css'
 import DateDivision from "@/components/DateDivision"
 import formatDate from "@/functions/formatDate"
+import ReactMarkdown from 'react-markdown'
 
 const AllNotes = ({ notes }) => {
 
@@ -12,15 +13,18 @@ const AllNotes = ({ notes }) => {
           return (
             <div className="note-container" key={note.note_id}>
               <DateDivision date={noteDate}/>
-              <p className='note-content'>
+              <div className='note-content'>
+                <ReactMarkdown>{note.content}</ReactMarkdown>
+              </div>
+              {/* <p className='note-content'>
                 {note.content}
-              </p>
+              </p> */}
             </div>
           )
         })
       }
     </div>
   )
-}
+} 
 
 export default AllNotes

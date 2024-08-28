@@ -1,0 +1,19 @@
+.editor-component-container {
+  min-width: 260px;
+  width: 80vw; 
+  margin: 5px;
+  padding: 10px;
+}
+
+.ql-editor {
+  border: 2px solid var(--secondary-color);
+  height: 50vh;
+  font-size: 1.6rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .editor-component-container {
+    min-width: 60vw;
+    max-width: 670px;
+  }
+}
