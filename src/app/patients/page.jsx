@@ -10,6 +10,7 @@ import TransparentButton from '@/components/TransparentButton';
 import Link from 'next/link';
 import getPatients from '@/functions/getPatients';
 import Search from '@/components/Search';
+import { sendGAEvent } from '@next/third-parties/google';
 
 const Patients = () => {
 
@@ -21,9 +22,7 @@ const Patients = () => {
   const patientsCollectionRef = collection(db, "patients")
   const q = query(patientsCollectionRef, where("attending", "array-contains", doctorId));
   
-  const handleClick = () => {
-    console.log('redireccionando a crear paciente')
-  }
+  sendGAEvent('event', 'patients_page_view')
 
   const createNewDoctor = (email) => {
     const doctorData = {
@@ -70,7 +69,7 @@ const Patients = () => {
         <section className="patients-list">
           <Search />
           <Link href="/admission">
-            <TransparentButton text="+" action={handleClick} />
+            <TransparentButton text='+' />
           </Link>
           <PatientsList patients={patients} />
         </section>

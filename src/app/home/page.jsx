@@ -9,8 +9,10 @@ import { sendGAEvent } from '@next/third-parties/google'
 
 const Home = () => {
 
+  sendGAEvent('event', 'home_page_view')
+
   const handleSubmit = () => {
-    sendGAEvent('event', 'buttonClicked', { value: 'probar-software-button' })
+    sendGAEvent('event', 'probar_software_button')
     console.log("redirigiendo a login")
   }
   

@@ -11,6 +11,7 @@ import { UserAuth } from '@/context/AuthContext'
 import Loader from '@/components/Loader'
 import createNewNote from '@/functions/createNewNote'
 import EditorComponent from '@/components/EditorComponent'
+import { sendGAEvent } from '@next/third-parties/google'
 
 const WriteNote = ({ params }) => {
 
@@ -27,6 +28,8 @@ const WriteNote = ({ params }) => {
   const patientIdentification = params.patientId
   const patientDocumentRef = doc(db, "patients", patientIdentification)
   const router = useRouter()
+
+  sendGAEvent('event', 'write_note_page_view')
 
   const initialPatientSetting = async () => {
     try {

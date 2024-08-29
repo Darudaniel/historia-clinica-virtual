@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 import Loader from '@/components/Loader'
 import validatePatientAdmission from '@/functions/validatePatientAdmission'
 import createNewPatient from '@/functions/createNewPatient'
+import { sendGAEvent } from '@next/third-parties/google'
 
 const Admission = () => {
 
@@ -21,6 +22,8 @@ const Admission = () => {
   const [inputValues, setInputValues] = useState({}); 
   const [selectedDates, setSelectedDates] = useState({});
   const [loading, setLoading] = useState(false)
+
+  sendGAEvent('event', 'admission_view')
 
   const handleInput = (inputName, value) => {
     setInputValues((prevInputValues) => ({
@@ -38,10 +41,10 @@ const Admission = () => {
 
   const handleSubmit = async () => {
     setLoading(true)
+    sendGAEvent('event', 'save_admission_button')
 
-    
     const patientName = inputValues.input1
-    const patientIdentification = inputValues.input2
+    const patientIdentification = inputValues.input2patient
     const patientBirth = selectedDates.dateInput1
     
     const currentDate = new Date()

@@ -8,12 +8,15 @@ import logo from '@/resources/logo.png'
 import { UserAuth } from '@/context/AuthContext'
 import { useRouter } from 'next/navigation'
 import Loader from '@/components/Loader'
+import { sendGAEvent } from '@next/third-parties/google'
 
 const Login = () => {
 
   const router = useRouter()
 
   const {user, googleSignIn} = UserAuth();  
+
+  sendGAEvent('event', 'login_page_view')
 
   const handleSignIn = async () => {
     try {

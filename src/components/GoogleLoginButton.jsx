@@ -10,7 +10,7 @@ const GoogleLoginButton = () => {
 
   const handleSignIn = async () => {
     try {
-      sendGAEvent('event', 'buttonClicked', { value: 'google-login-button' })
+      sendGAEvent('event', 'google_login_button')
       await googleSignIn()
     } catch (error) {
       console.log(error)
