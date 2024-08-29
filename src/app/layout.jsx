@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import ClientAuthContextProvider from '@/context/ClientAuthContextProvider'
 import {Providers} from "./providers";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
           </Providers>
         </ClientAuthContextProvider>
       </body>
+      <GoogleAnalytics gaId="G-8W243Y0FXQ" />
     </html>
   )
 }

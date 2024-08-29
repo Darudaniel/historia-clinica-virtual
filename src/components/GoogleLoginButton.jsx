@@ -1,6 +1,7 @@
 "use client"
 import '@/styles/components/GoogleLoginButton.css'
 import { UserAuth } from '@/context/AuthContext'
+import { sendGAEvent } from '@next/third-parties/google'
 import Image from 'next/image'
 
 const GoogleLoginButton = () => {
@@ -9,6 +10,7 @@ const GoogleLoginButton = () => {
 
   const handleSignIn = async () => {
     try {
+      sendGAEvent('event', 'buttonClicked', { value: 'google-login-button' })
       await googleSignIn()
     } catch (error) {
       console.log(error)

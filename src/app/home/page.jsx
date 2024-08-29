@@ -5,10 +5,12 @@ import Link from "next/link"
 import MainButton from "@/components/MainButton"
 import YouTubeVideo from "@/components/YouTubeVideo"
 import LegalArea from "@/components/LegalArea"
+import { sendGAEvent } from '@next/third-parties/google'
 
 const Home = () => {
 
   const handleSubmit = () => {
+    sendGAEvent('event', 'buttonClicked', { value: 'probar-software-button' })
     console.log("redirigiendo a login")
   }
   
