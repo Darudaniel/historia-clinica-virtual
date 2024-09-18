@@ -44,7 +44,7 @@ const Admission = () => {
     sendGAEvent('event', 'save_admission_button')
 
     const patientName = inputValues.input1
-    const patientIdentification = inputValues.input2patient
+    const patientIdentification = inputValues.input2
     const patientBirth = selectedDates.dateInput1
     
     const currentDate = new Date()
@@ -63,6 +63,7 @@ const Admission = () => {
       setLoading(false);
       return
     } else if (!/^\d+$/.test(patientIdentification)) { //Es un numero de ceula valido?
+      console.log(patientIdentification)
       alert('Por favor ingresa un numero de cedula valido');
       setLoading(false);
       return
@@ -107,8 +108,8 @@ const Admission = () => {
       <div className='admission'>
         <HeaderSimple title='INGRESO' /> 
         <section className='admission-form-container'>
-          <InputNormal placeholder='Nombre' onInputChange={(value) => handleInput('input1', value)} />
-          <InputNormal placeholder='Cedula' onInputChange={(value) => handleInput('input2', value)} />
+          <InputNormal inputId='name' placeholder='Nombre' onInputChange={(value) => handleInput('input1', value)} />
+          <InputNormal inputId='identification' placeholder='Cedula' onInputChange={(value) => handleInput('input2', value)} />
           <InputDate label='Fecha de nacimiento' onDateChange={(date) => handleDateInputChange('dateInput1', date)} />   
         </section>     
         <MainButton text='Agregar' action={handleSubmit} />

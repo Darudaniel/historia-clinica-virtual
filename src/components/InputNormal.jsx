@@ -2,7 +2,7 @@
 import '@/styles/components/InputNormal.css'
 import { useState } from 'react';
 
-const InputNormal = ({placeholder, onInputChange}) => {
+const InputNormal = ({placeholder, onInputChange, inputId}) => {
 
   const [inputValue, setInputValue] = useState('');
 
@@ -13,7 +13,13 @@ const InputNormal = ({placeholder, onInputChange}) => {
   };
 
   return (
-    <input type="text" className='input-normal'placeholder={placeholder} value={inputValue} onChange={handleInputChange} />
+    <input  
+      type="text" 
+      className='input-normal'
+      id={inputId}
+      placeholder={placeholder} 
+      value={inputValue} 
+      onChange={handleInputChange} />
   )
 }
 

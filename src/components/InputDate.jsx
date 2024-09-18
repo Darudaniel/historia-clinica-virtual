@@ -25,7 +25,7 @@ const InputDate = ({label, onDateChange}) => {
     <div className="input-date-container">
       <label>{label}</label>
       <br />
-      <input type="date" max={maxDate} className="input-date" value={selectedDate} onChange={handleDateChange} />
+      <input id="birth" type="date" max={maxDate} className="input-date" value={selectedDate} onChange={handleDateChange} />
     </div>
   )
 }
