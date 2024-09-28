@@ -17,6 +17,7 @@
 }
 
 .title {
+  margin-bottom: 3px;
   color: var(--dark-color);
   font-weight: 500;
 }

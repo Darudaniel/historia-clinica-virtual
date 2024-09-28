@@ -22,7 +22,7 @@ const Login = () => {
     try {
       await googleSignIn()
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 

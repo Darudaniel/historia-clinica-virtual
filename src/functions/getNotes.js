@@ -1,5 +1,5 @@
 import { db } from "@/firebase";
-import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy, or, and} from "firebase/firestore";
 import getPatient from "./getPatient";
 
 
@@ -20,9 +20,14 @@ const getNotes = async (patientIdentification, user) => {
   if(patient) {
       const notesCollectionRef = collection(db, "notes")
       const q = query(
-        notesCollectionRef, 
-        where("doctor", "==", doctorId), 
-        where("patient", "==", patientIdentification), 
+        notesCollectionRef,
+        and(
+          or(
+            where("doctor_id", "==", doctorId), 
+            where("doctor", "==", doctorId)
+          ),
+          where("patient", "==", patientIdentification)
+        ),
         orderBy("date")
       );
       const data = await getDocs(q)

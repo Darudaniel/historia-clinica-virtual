@@ -69,10 +69,10 @@ const Admission = () => {
       return
     } else {
       try {
-        console.log(currentDate)
-        console.log(patientBirth)
-        console.log(patientBirthFormatted)
-        console.log(patientBirthFormatted > currentDate)
+        // console.log(currentDate)
+        // console.log(patientBirth)
+        // console.log(patientBirthFormatted)
+        // console.log(patientBirthFormatted > currentDate)
         const isANewPatient = await validatePatientAdmission(patientIdentification, user)
         if (isANewPatient) {
           const formatedData = {

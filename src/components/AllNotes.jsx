@@ -13,6 +13,9 @@ const AllNotes = ({ notes }) => {
           return (
             <div className="note-container" key={note.note_id}>
               <DateDivision date={noteDate}/>
+              <div className='credit-container'>
+                <p className='credit'>Nota registrada por: {note.doctor_name || "Anónimo"} </p>
+              </div>
               <div className='note-content'>
                 <ReactMarkdown>{note.content}</ReactMarkdown>
               </div>

@@ -1,6 +1,7 @@
 .back-button {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 26px 5px 0 0 ;
   border: none;
   background: none;
 }

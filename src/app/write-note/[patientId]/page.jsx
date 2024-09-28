@@ -24,6 +24,7 @@ const WriteNote = ({ params }) => {
 
   const doctorObject = user
   const doctorIdentification = doctorObject.uid
+  const doctorName = doctorObject.displayName
 
   const patientIdentification = params.patientId
   const patientDocumentRef = doc(db, "patients", patientIdentification)
@@ -54,7 +55,7 @@ const WriteNote = ({ params }) => {
   };
 
   const handleSubmit = () => {
-
+     
     setIsDisabled(true)
 
     const getRandomInt = (max) => {
@@ -68,7 +69,8 @@ const WriteNote = ({ params }) => {
     const currentDate = new Date()
 
     const formatedData = {
-      "doctor": doctorIdentification,
+      "doctor_name": doctorName,
+      "doctor_id": doctorIdentification,
       "patient": patientIdentification,
       "content": inputValues.input, 
       "note_id": noteId,
